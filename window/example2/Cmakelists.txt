@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.27)
+
+project(asm64)
+enable_language(ASM_NASM)
+
+set(SOURCE_FILES src/main.asm)  
+
+add_executable(main ${SOURCE_FILES})
+
+set_target_properties(main PROPERTIES LINK_FLAGS "/ENTRY:main /SUBSYSTEM:CONSOLE /LARGEADDRESSAWARE:NO ")
+
+target_link_libraries(main kernel32.lib legacy_stdio_definitions.lib ucrt.lib )

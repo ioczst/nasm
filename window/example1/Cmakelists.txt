@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.27)
+
+project(asm64)
+enable_language(ASM_NASM)
+
+set(SOURCE_FILES src/BasicWindow64.asm)  
+
+add_executable(MyWindowedApp ${SOURCE_FILES})
+
+set_target_properties(MyWindowedApp PROPERTIES LINK_FLAGS "/ENTRY:Start /SUBSYSTEM:WINDOWS")
+
+target_link_libraries(MyWindowedApp kernel32.lib user32.lib)
